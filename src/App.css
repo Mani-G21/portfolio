@@ -1,0 +1,20 @@
+.background {
+  position: relative; /* Allows stacking with other elements */
+  height: 40194px; /* Static height */
+  width: 100vw;
+  background: #000000; /* Retains the black color */
+  z-index: -99; /* Keeps it behind other content */
+  overflow: hidden; 
+  padding: 0;
+  margin: 0;/* Prevents any overflow issues */
+}
+
+.container {
+  position: absolute;
+  top: 0; /* Content stays within normal flow */
+  z-index: 1; /* Ensures content is above the background */ 
+  padding: 20px; /* Adds spacing around the content */
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+}

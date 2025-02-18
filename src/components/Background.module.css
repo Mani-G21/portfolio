@@ -1,0 +1,175 @@
+.background {
+  position: relative; /* Makes it stick across scrolling */
+  top: 0;
+  left: 0;
+  height: 500vh;
+  background: #000000; /* Black color stays intact */
+  z-index: -99; /* Sends it behind the other elements */
+  overflow: hidden; /* Avoid overflow issues */
+}
+
+/* Remove the universal selector rule */
+
+.ellipse2,
+.ellipse3,
+.ellipse6,
+.ellipse7,
+.ellipse8,
+.ellipse9 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  animation: moveEllipse 3s infinite alternate ease-in-out;
+}
+
+.ellipse8 {
+  background: #9900ff;
+  width: 200px;
+  height: 200px;
+  left: -10px;
+  top: 24%;
+  animation-delay: 3s;
+}
+
+/* Individual ellipse styles */
+.ellipse2 {
+  background: #9900ff;
+  width: 400px;
+  height: 294px;
+  left: 60%;
+  top: 8%;
+  animation-delay: 0s;
+}
+
+/* Media query for mobile screens */
+@media (max-width: 768px) {
+  .ellipse2 {
+    top: 12%;
+    left: 20%;
+    width: 0px; /* Adjust this value as needed */
+  }
+}
+
+.ellipse7 {
+  background: #3e74ff;
+  width: 367px;
+  height: 384px;
+  left: 240px;
+  top: 2581px;
+  animation-delay: 2s;
+}
+
+.ellipse6 {
+  background: #9747ff;
+  width: 453px;
+  height: 363px;
+  left: 96px;
+  top: 2591px;
+  animation-delay: 4s;
+}
+.ellipse9 {
+  background: #9747ff;
+  width: 453px;
+  height: 363px;
+  left: -260px;
+  top: 1000px;
+  animation-delay: 5s;
+}
+
+/* Keyframes for smooth elliptical movement */
+@keyframes moveEllipse {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(50px, -30px);
+  }
+  50% {
+    transform: translate(-50px, 50px);
+  }
+  75% {
+    transform: translate(30px, -50px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.glassPillars {
+  position: absolute;
+  inset: 0;
+}
+
+.rectangle2,
+.rectangle3,
+.rectangle4,
+.rectangle5,
+.rectangle6,
+.rectangle7,
+.rectangle8,
+.rectangle9,
+.rectangle10,
+.rectangle11,
+.rectangle12,
+.rectangle13,
+.rectangle14,
+.rectangle15,
+.rectangle16 {
+  background: linear-gradient(
+    90deg,
+    rgba(217, 217, 217, 0) 0%,
+    rgb(0, 0, 0) 80%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  opacity: 0.3;
+  width: 96px;
+  height: 6934px;
+  position: absolute;
+  top: 0px;
+}
+
+.rectangle2 {
+  left: 0px;
+}
+.rectangle3 {
+  left: 96px;
+}
+.rectangle4 {
+  left: 192px;
+}
+.rectangle5 {
+  left: 288px;
+}
+.rectangle6 {
+  left: 384px;
+}
+.rectangle7 {
+  left: 480px;
+}
+.rectangle8 {
+  left: 576px;
+}
+.rectangle9 {
+  left: 672px;
+}
+.rectangle10 {
+  left: 768px;
+}
+.rectangle11 {
+  left: 864px;
+}
+.rectangle12 {
+  left: 960px;
+}
+.rectangle13 {
+  left: 1056px;
+}
+.rectangle14 {
+  left: 1152px;
+}
+.rectangle15 {
+  left: 1248px;
+}
+.rectangle16 {
+  left: 1344px;
+}
