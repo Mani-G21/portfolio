@@ -2,7 +2,7 @@
   position: relative; /* Makes it stick across scrolling */
   top: 0;
   left: 0;
-  height: 500vh;
+  height: 400vh;
   background: #000000; /* Black color stays intact */
   z-index: -99; /* Sends it behind the other elements */
   overflow: hidden; /* Avoid overflow issues */
