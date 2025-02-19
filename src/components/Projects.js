@@ -1,4 +1,5 @@
-import React, { act, useEffect, useState } from "react";
+/* eslint-disable react/jsx-no-target-blank */
+import React, { useState } from "react";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import peertalkScreenshot from "../assets/ProjectScreenshots/peerTalk_chatScreen.png";
 import docParserScreenshot from "../assets/ProjectScreenshots/Screenshot 2025-02-18 231743.png";

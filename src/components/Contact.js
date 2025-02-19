@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { FaEnvelope } from "react-icons/fa";
 
 const Contact = () => {
   const [showAlert, setShowAlert] = useState(false);

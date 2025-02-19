@@ -35,14 +35,14 @@ const HeroSection = () => {
               </p>
               <div className="flex justify-center md:justify-start space-x-5 mt-4">
                 <a
-                  href="#"
+                  href="https://github.com/Mani-G21"
                   className="text-white flex justify-center items-center hover:text-primary-100 font-bold"
                 >
                   Github
                   <FaGithub className="w-6 h-6 ml-1" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/in/ghindwani-manish-4066b52bb/"
                   className="text-white flex justify-center items-center hover:text-primary-100 font-bold"
                 >
                   LinkedIn
