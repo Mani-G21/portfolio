@@ -7,16 +7,35 @@ const Contact = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  // const handleSubmit = () => {
-  //   setShowAlert(true);
-  //   setTimeout(() => {
-  //     setShowAlert(false);
-  //   }, 5000);
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-  //   setFirstName("");
-  //   setEmail("");
-  //   setMessage("");
-  // };
+    const formData = new FormData();
+    formData.append("form-name", "contact");
+    formData.append("first_name", firstName);
+    formData.append("email", email);
+    formData.append("message", message);
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => {
+        setShowAlert(true);
+        setTimeout(() => {
+          setShowAlert(false);
+        }, 5000);
+
+        setFirstName("");
+        setEmail("");
+        setMessage("");
+        console.log("Form successfully submitted");
+      })
+      .catch((error) => {
+        console.error("Error submitting form: ", error);
+      });
+  };
 
   return (
     <div
@@ -43,9 +62,9 @@ const Contact = () => {
 
         <form
           name="contact"
-          onSubmit="submit"
           method="POST"
-          netlify
+          data-netlify="true"
+          onSubmit={handleSubmit}
         >
           <input type="hidden" name="form-name" value="contact" />
           <div className="grid gap-6  md:grid-cols-1">
@@ -109,7 +128,9 @@ const Contact = () => {
           >
             Submit
           </button>
-    
+          <div hidden>
+            <input name="bot-field" />
+          </div>
         </form>
 
         {showAlert && (
