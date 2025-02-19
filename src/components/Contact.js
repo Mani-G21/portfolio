@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 
 const Contact = () => {
@@ -6,16 +7,16 @@ const Contact = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = () => {
-    setShowAlert(true);
-    setTimeout(() => {
-      setShowAlert(false);
-    }, 5000);
+  // const handleSubmit = () => {
+  //   setShowAlert(true);
+  //   setTimeout(() => {
+  //     setShowAlert(false);
+  //   }, 5000);
 
-    setFirstName("");
-    setEmail("");
-    setMessage("");
-  };
+  //   setFirstName("");
+  //   setEmail("");
+  //   setMessage("");
+  // };
 
   return (
     <div
@@ -41,7 +42,6 @@ const Contact = () => {
         </p>
 
         <form
-          onSubmit={handleSubmit}
           name="contact"
           method="POST"
           data-netlify="true"
