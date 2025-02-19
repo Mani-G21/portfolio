@@ -43,6 +43,7 @@ const Contact = () => {
 
         <form
           name="contact"
+          onSubmit="submit"
           method="POST"
           netlify
         >
@@ -57,6 +58,7 @@ const Contact = () => {
               </label>
               <input
                 type="text"
+                name="first_name"
                 id="first_name"
                 className="border border-primary-100 text-gray-900 text-sm rounded-lg focus:ring-primary-100 focus:border-primary-100 block w-full p-2.5"
                 placeholder="Your first name"
@@ -74,6 +76,7 @@ const Contact = () => {
               </label>
               <input
                 type="email"
+                name="email"
                 id="email"
                 className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="john.doe@company.com"
@@ -91,6 +94,7 @@ const Contact = () => {
           </label>
           <input
             type="text"
+            name="message"
             id="message"
             className="border border-primary-100 text-gray-900 text-sm rounded-lg focus:ring-primary-100 focus:border-primary-100 block w-full p-2.5"
             placeholder="Message"
