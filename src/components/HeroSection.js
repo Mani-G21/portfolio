@@ -6,7 +6,7 @@ import { FaGithub } from "react-icons/fa";
 const HeroSection = () => {
   return (
     <>
-      <div className="bg-transparent h-screen text-white flex flex-col md:flex-row w-screen mx-0" id="home">
+      <div className="font-jakarta bg-transparent h-screen text-white flex flex-col md:flex-row w-screen mx-0" id="home">
         <div
           className="bg-transparent w-full md:w-1/2 h-1/2 md:h-full bg-cover bg-center md:bg-none mt-[10%] md:mt-0 lg:mt-0"
           style={{

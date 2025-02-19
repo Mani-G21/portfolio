@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaEnvelope } from "react-icons/fa";
 
 const Contact = () => {
+  const [showAlert, setShowAlert] = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setShowAlert(true);
+    setTimeout(() => {
+      setShowAlert(false);
+    }, 5000);
+
+    setFirstName("");
+    setEmail("");
+    setMessage("");
+  };
+
   return (
-    <div className="w-screen h-screen flex flex-wrap justify-center font-jakarta mt-20" id="contact">
+    <div
+      className="w-screen md:h-[70vh] lg:h-[70vh] h-screen flex flex-wrap justify-center font-jakarta mt-20"
+      id="contact"
+    >
       <div className="md:w-[40%] h-[20%] md:pr-5 lg:pr-5 flex-col content-center">
         <p className="md:place-self-start text-center text-white text-sm sm:text-sm md:text-xl lg:text-2xl font-thin tracking-[1rem] sm:tracking-normal md:tracking-wide lg:tracking-[1rem]  sm:mb-6 md:mb-2 ">
           CONTACT
@@ -16,67 +36,99 @@ const Contact = () => {
         </p>
       </div>
 
-      <div className="md:w-[40%] lg:w-[40%] text-white flex-col tracking-wide w-[80%]">
+      <div className="md:w-[40%] lg:w-[40%] text-white flex-col tracking-wide w-[80%] relative top-[-10%] md:top-[0%] lg:top-[0%] ">
         <p className="mb-10">
           Got a project? Drop me a line if you want to work together on
-          something exciting.Big or small. Mobile or web.
+          something exciting. Big or small. Mobile or web.
         </p>
-
-        <form>
-          <div class="grid gap-6  md:grid-cols-1 bg-red-100]">
+        
+        <form onSubmit={handleSubmit}>
+          <div className="grid gap-6  md:grid-cols-1">
             <div>
               <label
-                for="first_name"
-                class="block mb-2 text-sm font-medium text-primary-100"
+                htmlFor="first_name"
+                className="block mb-2 text-sm font-medium text-primary-100"
               >
                 First name
               </label>
               <input
                 type="text"
                 id="first_name"
-                class="border border-primary-100 text-gray-900 text-sm rounded-lg focus:ring-primary-100 focus:border-primary-100 block w-full p-2.5"
+                className="border border-primary-100 text-gray-900 text-sm rounded-lg focus:ring-primary-100 focus:border-primary-100 block w-full p-2.5"
                 placeholder="Your first name"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
                 required
               />
             </div>
-            <div class="mb-6">
+            <div className="mb-6">
               <label
-                for="email"
-                class="block mb-2 text-sm font-medium text-primary-100 dark:text-white"
+                htmlFor="email"
+                className="block mb-2 text-sm font-medium text-primary-100 dark:text-white"
               >
                 Email address
               </label>
               <input
                 type="email"
                 id="email"
-                class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="john.doe@company.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
-
-            
           </div>
           <label
-              for="message"
-              class="block mb-2 text-sm font-medium text-primary-100 dark:text-white"
-            >
-              Message
-            </label>
-            <textarea
-              id="message"
-              rows="4"
-              class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Write your thoughts here..."
-            ></textarea>
+            htmlFor="message"
+            className="block mb-2 text-sm font-medium text-primary-100 dark:text-white"
+          >
+            Message
+          </label>
+          <input
+            type="text"
+            id="message"
+            className="border border-primary-100 text-gray-900 text-sm rounded-lg focus:ring-primary-100 focus:border-primary-100 block w-full p-2.5"
+            placeholder="Message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            required
+          />
 
           <button
             type="submit"
-            class="mt-10 text-black font-bold bg-primary-100 focus:ring-4 focus:outline-none rounded-lg text-md w-full sm:w-auto px-8 py-4 text-center"
+            className="mt-10 text-black font-bold bg-primary-100 focus:ring-4 focus:outline-none rounded-lg text-md w-full sm:w-auto px-8 py-4 text-center"
           >
             Submit
           </button>
         </form>
+
+        {showAlert && (
+          <div
+            id="toast-simple"
+            className="fixed bottom-0 mb-5 flex items-center w-full max-w-xs p-4 space-x-4 rtl:space-x-reverse text-green-500 bg-green-200 divide-x rounded-lg md:left-[80%] lg:left-[80%]"
+            role="alert"
+          >
+            <svg
+              className="w-5 h-5 text-green-400 rotate-45"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 18 20"
+            >
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="m9 17 8 2L9 1 1 19l8-2Zm0 0V9"
+              />
+            </svg>
+            <div className="ps-4 text-sm font-normal">
+              Message sent successfully.
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

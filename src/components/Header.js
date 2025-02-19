@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import resume from "../assets/resume/Ghindwani-Manish-Resume.pdf"
 
 const Header = () => {
   const [isHamnurgerListVisible, setHamburgerList] = useState(false);
@@ -76,7 +77,7 @@ const Header = () => {
             </li>
             <li>
               <a
-                href="#"
+                href={resume}
                 className="block py-2 px-3 text-gray-900 rounded hover:text-primary-100 rple- md:p-0 md:dark:hover:text-primary-100 dark:text-white hover:text-primary-100 md:dark:hover:bg-transparent dark:border-gray-700"
               >
                 Resume

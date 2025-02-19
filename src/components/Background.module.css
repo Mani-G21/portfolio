@@ -26,9 +26,16 @@
   background: #9900ff;
   width: 200px;
   height: 200px;
-  left: -10px;
-  top: 24%;
-  animation-delay: 3s;
+  left: 2%;
+  top: 30%;
+}
+
+.ellipse9 {
+  background: #3bcdfd;
+  width: 200px;
+  height: 200px;
+  left: 85%;
+  top: 38%;
 }
 
 /* Individual ellipse styles */
@@ -38,7 +45,14 @@
   height: 294px;
   left: 60%;
   top: 8%;
-  animation-delay: 0s;
+}
+
+.ellipse7 {
+  background: #9900ff;
+  width: 400px;
+  height: 200px;
+  left: 50%;
+  top: 80%;
 }
 
 /* Media query for mobile screens */
@@ -48,33 +62,35 @@
     left: 20%;
     width: 0px; /* Adjust this value as needed */
   }
+
+  .ellipse8 {
+    left: -10%;
+    top: 20%;
+    width: 200px;
+  }
+
+  .ellipse9 {
+    left: 60%;
+    top: 35%;
+    width: 200px;
+  }
+
+  .ellipse7 {
+   top: 70%;
+  }
 }
 
-.ellipse7 {
-  background: #3e74ff;
-  width: 367px;
-  height: 384px;
-  left: 240px;
-  top: 2581px;
-  animation-delay: 2s;
-}
+
 
 .ellipse6 {
   background: #9747ff;
   width: 453px;
   height: 363px;
-  left: 96px;
+  left: 50%;
   top: 2591px;
   animation-delay: 4s;
 }
-.ellipse9 {
-  background: #9747ff;
-  width: 453px;
-  height: 363px;
-  left: -260px;
-  top: 1000px;
-  animation-delay: 5s;
-}
+
 
 /* Keyframes for smooth elliptical movement */
 @keyframes moveEllipse {
@@ -122,54 +138,54 @@
     rgba(255, 255, 255, 0) 100%
   );
   opacity: 0.3;
-  width: 96px;
+  width: 7%;
   height: 6934px;
   position: absolute;
   top: 0px;
 }
 
 .rectangle2 {
-  left: 0px;
+  left: 0%;
 }
 .rectangle3 {
-  left: 96px;
+  left: 7%;
 }
 .rectangle4 {
-  left: 192px;
+  left: 14%;
 }
 .rectangle5 {
-  left: 288px;
+  left: 21%;
 }
 .rectangle6 {
-  left: 384px;
+  left: 28%;
 }
 .rectangle7 {
-  left: 480px;
+  left: 34%;
 }
 .rectangle8 {
-  left: 576px;
+  left: 40%;
 }
 .rectangle9 {
-  left: 672px;
+  left: 47%;
 }
 .rectangle10 {
-  left: 768px;
+  left: 54%;
 }
 .rectangle11 {
-  left: 864px;
+  left: 61%;
 }
 .rectangle12 {
-  left: 960px;
+  left: 68%;
 }
 .rectangle13 {
-  left: 1056px;
+  left: 75%;
 }
 .rectangle14 {
-  left: 1152px;
+  left: 82%;
 }
 .rectangle15 {
-  left: 1248px;
+  left: 89%;
 }
 .rectangle16 {
-  left: 1344px;
+  left: 96%;
 }

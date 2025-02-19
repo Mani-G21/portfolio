@@ -21,9 +21,9 @@ const Skills = () => {
         <span className="text-primary-100 mr-3">Technical</span><span>Skills</span>
       </div>
 
-      <div className="w-[80%] mt-10 grid grid-cols-2 md:grid-cols-5 gap-10 text-white">
+      <div className="w-[80%] mt-10 grid grid-cols-1 md:grid-cols-5 gap-10 text-white">
         <div className="flex flex-col items-center">
-          <h2 className="lg:text-xl md:text-md text-sm font-thin mb-4 tracking-[0.5rem]">FRONTEND</h2>
+          <h2 className="lg:text-xl md:text-md text-sm font-thin mb-4 tracking-[0.5rem] text-primary-100">FRONTEND</h2>
           <div className="grid grid-cols-2 gap-4">
             <div className="flex flex-col items-center">
               <img src={htmlIcon} alt="HTML" className="w-14 h-14 mb-2"/>
@@ -44,7 +44,7 @@ const Skills = () => {
           </div>
         </div>
         <div className="flex flex-col items-center">
-  <h2 className="lg:text-xl md:text-md text-sm font-thin mb-4 tracking-[0.5rem]">BACKEND</h2>
+  <h2 className="lg:text-xl md:text-md text-sm font-thin mb-4 tracking-[0.5rem] text-primary-100">BACKEND</h2>
   <div className="grid grid-cols-2 gap-4">
     <div className="flex flex-col items-center">
       <img src={phpIcon} alt="PHP" className="w-12 h-12 mb-2"/>
@@ -65,7 +65,7 @@ const Skills = () => {
 
 
         <div className="flex flex-col items-center">
-          <h2 className="lg:text-xl md:text-md text-sm font-thin mb-4 tracking-[0.5rem]">TOOLS</h2>
+          <h2 className="lg:text-xl md:text-md text-sm font-thin mb-4 tracking-[0.5rem] text-primary-100">TOOLS</h2>
           <div className="grid grid-cols-2 gap-4">
             <div className="flex flex-col items-center">
               <img src={gitIcon} alt="Git" className="w-14 h-14 mb-2"/>
@@ -79,7 +79,7 @@ const Skills = () => {
         </div>
 
         <div className="flex flex-col items-center">
-          <h2 className="lg:text-xl md:text-md text-sm font-thin mb-4 tracking-[0.5rem]">TESTING</h2>
+          <h2 className="lg:text-xl md:text-md text-sm font-thin mb-4 tracking-[0.5rem] text-primary-100">TESTING</h2>
           <div className="grid grid-cols-1 gap-4">
             <div className="flex flex-col items-center">
               <img src={seleniumIcon} alt="Selenium" className="w-14 h-17 mb-2"/>
@@ -89,7 +89,7 @@ const Skills = () => {
         </div>
 
         <div className="flex flex-col items-center">
-          <h2 className="lg:text-xl md:text-md text-sm font-thin mb-4 tracking-[0.5rem]">LANGUAGES</h2>
+          <h2 className="lg:text-xl md:text-md text-sm font-thin mb-4 tracking-[0.5rem] text-primary-100">LANGUAGES</h2>
           <div className="grid grid-cols-2 gap-4">
             <div className="flex flex-col items-center">
               <img src={jsIcon} alt="JavaScript" className="w-14 h-14 mb-2"/>

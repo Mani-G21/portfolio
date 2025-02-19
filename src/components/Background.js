@@ -5,6 +5,8 @@ function Background() {
     <div className={`${styles.background}`}>
       <div className={`${styles.ellipse2}`}></div>
       <div className={`${styles.ellipse8}`}></div>
+      <div className={`${styles.ellipse9}`}></div>
+      <div className={`${styles.ellipse7}`}></div>
       <div className={`${styles.rectangle2}`}></div>
       <div className={`${styles.rectangle3}`}></div>
       <div className={`${styles.rectangle4}`}></div>
