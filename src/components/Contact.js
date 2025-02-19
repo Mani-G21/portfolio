@@ -40,8 +40,14 @@ const Contact = () => {
           Got a project? Drop me a line if you want to work together on
           something exciting. Big or small. Mobile or web.
         </p>
-        
-        <form onSubmit={handleSubmit}>
+
+        <form
+          onSubmit={handleSubmit}
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+        >
           <div className="grid gap-6  md:grid-cols-1">
             <div>
               <label
@@ -100,6 +106,9 @@ const Contact = () => {
           >
             Submit
           </button>
+          <div hidden>
+            <input name="bot-field" />
+          </div>
         </form>
 
         {showAlert && (
