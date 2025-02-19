@@ -6,8 +6,7 @@ const Contact = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     setShowAlert(true);
     setTimeout(() => {
       setShowAlert(false);
