@@ -9,29 +9,11 @@ const Contact = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    const formData = new URLSearchParams();
-    formData.append("form-name", "contact");
-    formData.append("first_name", firstName);
-    formData.append("email", email);
-    formData.append("message", message);
-
-    fetch("/", {
-      method: "POST",
-      body: formData.toString(), // Netlify expects URL-encoded format
-    })
-      .then(() => {
-        setShowAlert(true);
-        setTimeout(() => setShowAlert(false), 5000);
-
-        setFirstName("");
-        setEmail("");
-        setMessage("");
-        console.log("Form successfully submitted");
-      })
-      .catch((error) => {
-        console.error("Error submitting form: ", error);
-      });
+    setShowAlert(true);
+    setTimeout(() => setShowAlert(false), 5000);
+    setFirstName("");
+    setEmail("");
+    setMessage("");
   };
 
   return (
