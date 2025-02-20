@@ -8,9 +8,21 @@ const Contact = () => {
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [errors, setErrors] = useState({});
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    
+    let formErrors = {};
+    if (!firstName) formErrors.firstName = "First name is required";
+    if (!email) formErrors.email = "Email is required";
+    if (!message) formErrors.message = "Message is required";
+
+    if (Object.keys(formErrors).length > 0) {
+      setErrors(formErrors);
+      return;
+    }
 
     try {
       await addDoc(collection(db, "contacts"), {
@@ -25,6 +37,7 @@ const Contact = () => {
       setFirstName("");
       setEmail("");
       setMessage("");
+      setErrors({});
 
       console.log("Form submitted successfully!");
     } catch (error) {
@@ -55,12 +68,7 @@ const Contact = () => {
           something exciting. Big or small. Mobile or web.
         </p>
 
-        {/* FormSubmit Form */}
-        <form
-          // Replace with your FormSubmit email URL
-          onSubmit={handleSubmit}
-          name="contacts"
-        >
+        <form onSubmit={handleSubmit} name="contacts">
           <input type="hidden" name="_captcha" value="false" />
           <input
             type="hidden"
@@ -86,11 +94,14 @@ const Contact = () => {
                 onChange={(e) => setFirstName(e.target.value)}
                 required
               />
+              {errors.firstName && (
+                <p className="text-red-500 text-sm">{errors.firstName}</p>
+              )}
             </div>
             <div className="mb-6">
               <label
                 htmlFor="email"
-                className="block mb-2 text-sm font-medium text-primary-100"
+                className="block mb-2 text-sm font-medium text-primary-100 dark:text-white"
               >
                 Email address
               </label>
@@ -104,6 +115,9 @@ const Contact = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
+              {errors.email && (
+                <p className="text-red-500 text-sm">{errors.email}</p>
+              )}
             </div>
           </div>
           <label
@@ -120,11 +134,13 @@ const Contact = () => {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             required
-          ></textarea>
+          />
+          {errors.message && (
+            <p className="text-red-500 text-sm">{errors.message}</p>
+          )}
 
           <button
             type="submit"
-            onClick={handleSubmit}
             className="mt-10 text-black font-bold bg-primary-100 focus:ring-4 focus:outline-none rounded-lg text-md w-full sm:w-auto px-8 py-4 text-center"
           >
             Submit
@@ -137,7 +153,6 @@ const Contact = () => {
             className="fixed bottom-0 mb-5 flex items-center w-full max-w-xs p-4 space-x-4 rtl:space-x-reverse text-green-500 bg-green-200 divide-x rounded-lg md:left-[80%] lg:left-[80%]"
             role="alert"
           >
-            {" "}
             <svg
               className="w-5 h-5 text-green-400 rotate-45"
               aria-hidden="true"
@@ -145,19 +160,17 @@ const Contact = () => {
               fill="none"
               viewBox="0 0 18 20"
             >
-              {" "}
               <path
                 stroke="currentColor"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
                 d="m9 17 8 2L9 1 1 19l8-2Zm0 0V9"
-              />{" "}
-            </svg>{" "}
+              />
+            </svg>
             <div className="ps-4 text-sm font-normal">
-              {" "}
-              Message sent successfully.{" "}
-            </div>{" "}
+              Message sent successfully.
+            </div>
           </div>
         )}
       </div>
