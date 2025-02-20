@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
+import { db } from "../Firebase"; // Adjust path if needed
+import { collection, addDoc } from "firebase/firestore";
 
 const Contact = () => {
   const [showAlert, setShowAlert] = useState(false);
@@ -7,12 +9,27 @@ const Contact = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (event) => {
-    setShowAlert(true);
-    setTimeout(() => setShowAlert(false), 5000);
-    setFirstName("");
-    setEmail("");
-    setMessage("");
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      await addDoc(collection(db, "contacts"), {
+        firstName,
+        email,
+        message,
+      });
+
+      setShowAlert(true);
+      setTimeout(() => setShowAlert(false), 5000);
+
+      setFirstName("");
+      setEmail("");
+      setMessage("");
+
+      console.log("Form submitted successfully!");
+    } catch (error) {
+      console.error("Error submitting form: ", error);
+    }
   };
 
   return (
@@ -38,14 +55,20 @@ const Contact = () => {
           something exciting. Big or small. Mobile or web.
         </p>
 
+        {/* FormSubmit Form */}
         <form
-          name="contact"
-          method="POST"
-          data-netlify="true"
+          // Replace with your FormSubmit email URL
           onSubmit={handleSubmit}
+          name="contacts"
         >
-          <input type="hidden" name="form-name" value="contact" />
-          <div className="grid gap-6  md:grid-cols-1">
+          <input type="hidden" name="_captcha" value="false" />
+          <input
+            type="hidden"
+            name="_autoresponse"
+            value="Thank you for reaching out! I'll get back to you soon."
+          />
+
+          <div className="grid gap-6 md:grid-cols-1">
             <div>
               <label
                 htmlFor="first_name"
@@ -67,7 +90,7 @@ const Contact = () => {
             <div className="mb-6">
               <label
                 htmlFor="email"
-                className="block mb-2 text-sm font-medium text-primary-100 dark:text-white"
+                className="block mb-2 text-sm font-medium text-primary-100"
               >
                 Email address
               </label>
@@ -85,12 +108,11 @@ const Contact = () => {
           </div>
           <label
             htmlFor="message"
-            className="block mb-2 text-sm font-medium text-primary-100 dark:text-white"
+            className="block mb-2 text-sm font-medium text-primary-100"
           >
             Message
           </label>
-          <input
-            type="text"
+          <textarea
             name="message"
             id="message"
             className="border border-primary-100 text-gray-900 text-sm rounded-lg focus:ring-primary-100 focus:border-primary-100 block w-full p-2.5"
@@ -98,17 +120,15 @@ const Contact = () => {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             required
-          />
+          ></textarea>
 
           <button
             type="submit"
+            onClick={handleSubmit}
             className="mt-10 text-black font-bold bg-primary-100 focus:ring-4 focus:outline-none rounded-lg text-md w-full sm:w-auto px-8 py-4 text-center"
           >
             Submit
           </button>
-          <div hidden>
-            <input name="bot-field" />
-          </div>
         </form>
 
         {showAlert && (
@@ -117,6 +137,7 @@ const Contact = () => {
             className="fixed bottom-0 mb-5 flex items-center w-full max-w-xs p-4 space-x-4 rtl:space-x-reverse text-green-500 bg-green-200 divide-x rounded-lg md:left-[80%] lg:left-[80%]"
             role="alert"
           >
+            {" "}
             <svg
               className="w-5 h-5 text-green-400 rotate-45"
               aria-hidden="true"
@@ -124,17 +145,19 @@ const Contact = () => {
               fill="none"
               viewBox="0 0 18 20"
             >
+              {" "}
               <path
                 stroke="currentColor"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
                 d="m9 17 8 2L9 1 1 19l8-2Zm0 0V9"
-              />
-            </svg>
+              />{" "}
+            </svg>{" "}
             <div className="ps-4 text-sm font-normal">
-              Message sent successfully.
-            </div>
+              {" "}
+              Message sent successfully.{" "}
+            </div>{" "}
           </div>
         )}
       </div>
