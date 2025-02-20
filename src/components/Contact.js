@@ -8,7 +8,6 @@ const Contact = () => {
   const [message, setMessage] = useState("");
 
   const handleSubmit = (event) => {
-    event.preventDefault();
     setShowAlert(true);
     setTimeout(() => setShowAlert(false), 5000);
     setFirstName("");
