@@ -10,7 +10,7 @@ const Contact = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const formData = new FormData();
+    const formData = new URLSearchParams();
     formData.append("form-name", "contact");
     formData.append("first_name", firstName);
     formData.append("email", email);
@@ -18,14 +18,11 @@ const Contact = () => {
 
     fetch("/", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString(),
+      body: formData.toString(), // Netlify expects URL-encoded format
     })
       .then(() => {
         setShowAlert(true);
-        setTimeout(() => {
-          setShowAlert(false);
-        }, 5000);
+        setTimeout(() => setShowAlert(false), 5000);
 
         setFirstName("");
         setEmail("");
