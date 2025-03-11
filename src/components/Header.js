@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import resume from "../assets/resume/Ghindwani-Manish-Resume.pdf"
+import resume from "../assets/resume/Ghindwani-Manish-FullStackDeveloper.pdf"
 
 const Header = () => {
   const [isHamnurgerListVisible, setHamburgerList] = useState(false);
