@@ -42,7 +42,7 @@ const HeroSection = () => {
                   <FaGithub className="w-6 h-6 ml-1" />
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/ghindwani-manish-4066b52bb/"
+                  href="https://www.linkedin.com/in/manish-ghindwani-4066b52bb/"
                   className="text-white flex justify-center items-center hover:text-primary-100 font-bold"
                 >
                   LinkedIn
