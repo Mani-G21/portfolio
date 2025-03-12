@@ -1,7 +1,6 @@
 import './App.css';
 import About from './components/About';
 import Background from './components/Background';
-import Carousel from './components/Carousel';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Header from './components/Header';

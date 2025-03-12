@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import peertalkScreenshot from "../assets/ProjectScreenshots/peerTalk_chatScreen.png";
 import docParserScreenshot from "../assets/ProjectScreenshots/Screenshot 2025-02-18 231743.png";
