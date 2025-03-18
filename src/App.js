@@ -14,15 +14,17 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    const handleLoad = () => {
+      // Add a 2-second delay after the content is loaded
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 2000); // 2-second delay
+    };
+
     // Check if the document is already loaded
     if (document.readyState === "complete") {
-      setIsLoading(false);
+      handleLoad();
     } else {
-      const handleLoad = () => {
-        setIsLoading(false);
-      };
-
-      // Listen for both DOMContentLoaded and load events for reliability
       document.addEventListener("DOMContentLoaded", handleLoad);
       window.addEventListener("load", handleLoad);
 
@@ -48,7 +50,6 @@ function App() {
             <Skills />
             <Contact />
             <Footer />
-           
           </div>
         </>
       )}
