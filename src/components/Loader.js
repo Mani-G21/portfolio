@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-const Loader = () => {
+const Loader = ({ isFadingOut }) => {
   return (
-    <StyledWrapper>
+    <StyledWrapper className={isFadingOut ? "fade-out" : ""}>
       <div className="spinner">
         <div />
         <div />
@@ -17,19 +17,28 @@ const Loader = () => {
 };
 
 const StyledWrapper = styled.div`
-  /* Center the spinner container */
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw; /* Full viewport width */
-  height: 100vh; /* Full viewport height */
-  background-color:rgb(0, 0, 0); /* Optional background color for loading screen */
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color:rgb(0, 0, 0); /* Loader background */
+  z-index: 1000; /* Ensure loader is on top */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+
+  &.fade-out {
+    opacity: 0; /* Fade-out effect */
+    transform: translateY(-100%); /* Slide-up effect */
+  }
 
   .spinner {
     width: 70.4px;
     height: 70.4px;
-    --clr: rgb(172, 47, 255);
-    --clr-alpha: rgba(195, 0, 255, 0.1);
+    --clr: #9900ff;
+    --clr-alpha:rgba(153, 0, 255, 0.15);
     animation: spinner 1.6s infinite ease;
     transform-style: preserve-3d;
   }
@@ -74,11 +83,9 @@ const StyledWrapper = styled.div`
     0% {
       transform: rotate(45deg) rotateX(-25deg) rotateY(25deg);
     }
-
     50% {
       transform: rotate(45deg) rotateX(-385deg) rotateY(25deg);
     }
-
     100% {
       transform: rotate(45deg) rotateX(-385deg) rotateY(385deg);
     }

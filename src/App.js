@@ -8,42 +8,54 @@ import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
 import Project from "./components/Projects";
 import Skills from "./components/Skills";
-import Loader from "./components/Loader"; // Import the loader component
-
+import Loader from "./components/Loader";
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [mainContainerLoaded, setMainContainerLoaded] = useState(false);
+  const [isFadingOut, setIsFadingOut] = useState(false);
 
   useEffect(() => {
     const handleLoad = () => {
-      // Add a 2-second delay after the content is loaded
       setTimeout(() => {
-        setIsLoading(false);
-      }, 2000); // 2-second delay
+        setIsFadingOut(true);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 100); // Match fade-out duration
+      }, 2000);
     };
 
-    // Check if the document is already loaded
     if (document.readyState === "complete") {
       handleLoad();
     } else {
-      document.addEventListener("DOMContentLoaded", handleLoad);
       window.addEventListener("load", handleLoad);
-
-      return () => {
-        document.removeEventListener("DOMContentLoaded", handleLoad);
-        window.removeEventListener("load", handleLoad);
-      };
+      return () => window.removeEventListener("load", handleLoad);
     }
   }, []);
+
+  // Ensure mainContainerLoaded is set after the loader is completely removed
+  useEffect(() => {
+    if (!isLoading) {
+      setTimeout(() => {
+        setMainContainerLoaded(true);
+      }, 50); // Short delay to ensure reflow
+    }
+  }, [isLoading]);
 
   return (
     <>
       {isLoading ? (
-        <Loader /> // Show the loader while loading
+        <Loader isFadingOut={isFadingOut} />
       ) : (
         <>
+          
           <Background />
+          
           <Header />
-          <div className="container">
+          <div
+            className={`container ${mainContainerLoaded ? "slide-up" : "slide-hidden"}`}
+          >
+             
+             
             <HeroSection />
             <About />
             <Project />
